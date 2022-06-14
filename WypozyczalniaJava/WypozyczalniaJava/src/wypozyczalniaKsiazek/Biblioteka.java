@@ -2,8 +2,13 @@ package wypozyczalniaKsiazek;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Scanner;
 
 
@@ -30,7 +35,17 @@ public class Biblioteka {
         }
     }
 
-    public void Wczytaj() {
+    /*public void Wczytaj() {
+        System.out.println("Wczytano: ");
+
+        Path path = Paths.get("src/ksiazki.txt");
+        try {
+            List<String> lines = Files.readAllLines(path);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }*/
+
+   public void Wczytaj() {
         System.out.println("Wczytano: ");
         File file = new File("src/ksiazki.txt");
         Scanner in = null;
