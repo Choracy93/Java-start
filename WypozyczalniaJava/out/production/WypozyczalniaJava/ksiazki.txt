@@ -1,0 +1,1 @@
+Ksiazki{, autor='sle', tytul='kr', gatunek='wy', wydawnictwo='null', rokWydania=345, wypozyczenieKsiazki=false}
