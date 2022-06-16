@@ -1,0 +1,1 @@
+Ksiazki{, autor='a', tytul='b', gatunek='c', wydawnictwo='d', rokWydania=2014, wypozyczenieKsiazki=false}
