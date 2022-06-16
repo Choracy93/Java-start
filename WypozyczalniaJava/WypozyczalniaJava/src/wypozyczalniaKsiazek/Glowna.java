@@ -1,9 +1,6 @@
 package wypozyczalniaKsiazek;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
@@ -17,7 +14,7 @@ public class Glowna {
 
         String operacja;
         do {
-            operacja = wyswietl("opcje to - dodaj, wyswietl, wypożycz, zwrot, pokaż dostępne, wyjdz, wczytaj");
+            operacja = wyswietl("opcje: dodaj, wyswietl, wypożycz, zwrot, pokaż dostępne, wyjdz, wczytaj");
             if ("dodaj".equalsIgnoreCase(operacja)) {
                 dodajKsiazke(biblioteka);
             } else if (!"wczytaj".equalsIgnoreCase(operacja)){
@@ -40,7 +37,7 @@ public class Glowna {
 
     }
 
-    private static void dodajKsiazke(Biblioteka biblioteka) {
+    public static void dodajKsiazke(Biblioteka biblioteka) {
         String autor = wyswietl(" autora ");
         String tytul = wyswietl(" tytul ");
         String gatunek = wyswietl(" gatunek ");
@@ -51,23 +48,32 @@ public class Glowna {
                 Integer.valueOf(rokWydania));
 
         biblioteka.dodawanieKsiazek(ksiazki);
+         PrintWriter zapis = null;
+        try {
+            zapis = new PrintWriter("src/ksiazki.txt");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        zapis.println(ksiazki);
+        zapis.close();
+
     }
 
     private static String wyswietl(String dane) {
         System.out.println("");
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Napisz co chcesz zrobić : " + dane);
+        System.out.println("Podaj/Wybierz " + dane);
         String tresc = scanner.nextLine();
-        System.out.println("Dodano książki : " + tresc);
+        System.out.println("Wybrano : " + tresc);
 
-        /*PrintWriter zapis = null;
+       /* PrintWriter zapis = null;
         try {
             zapis = new PrintWriter("src/ksiazki.txt");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
         zapis.println();
-        zapis.close();*/
+        zapis.close(); */
 
         return tresc;
     }

@@ -24,14 +24,14 @@ public class Biblioteka {
         System.out.println("Lista ksiazek: ");
         for (Ksiazki ksiazki: ksiazkiHashMap.values()) {
             System.out.println(ksiazki);
-            PrintWriter zapis = null;
+          /* PrintWriter zapis = null;
             try {
                 zapis = new PrintWriter("src/ksiazki.txt");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
             zapis.println(ksiazki);
-            zapis.close();
+            zapis.close();*/
         }
     }
 
